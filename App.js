@@ -8,7 +8,9 @@
 
 import React, {Component} from 'react';
 import {Platform, ScrollView,StyleSheet, Text, View,Button,Alert,Image} from 'react-native';
-import Camera from './src/components/camera';
+
+import Flatlists from './src/components/flatlist';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -22,8 +24,8 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View>
-        <Camera></Camera>
+      <View style={styles.container}>
+        <Flatlists></Flatlists>
       </View>
     );
   }
@@ -31,8 +33,8 @@ export default class App extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    //  flex: 1,
-     flexDirection:'column',
+      flex: 1,
+     //flexDirection:'column',
     // justifyContent: 'center',
     // alignItems: 'center',
     // backgroundColor: 'green',

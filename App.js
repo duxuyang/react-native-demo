@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, ScrollView,StyleSheet, Text, View,Button,Alert,Image} from 'react-native';
 
-import Flatlists from './src/components/flatlist';
+import Position from './src/components/position';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,7 +25,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Flatlists></Flatlists>
+        <Position></Position>
       </View>
     );
   }

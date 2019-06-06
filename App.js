@@ -7,9 +7,13 @@
  */
 
 import React, {Component} from 'react';
+
 import {Platform, ScrollView,StyleSheet, Text, View,Button,Alert,Image} from 'react-native';
 
-import Position from './src/components/position';
+
+
+import StateBar from './src/components/stateBar';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,6 +22,9 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+
+
+
 type Props = {};
 export default class App extends Component<Props> {
 
@@ -25,7 +32,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Position></Position>
+        <StateBar></StateBar>
       </View>
     );
   }

@@ -26,8 +26,28 @@ export default class Demo2 extends Component{
       console.log(this.state.list)
     })
   }
+  static navigationOptions = {
+    title: 'Details',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    headerRight: (
+      <Button
+        onPress={() => alert('This is a button!')}
+        title="Info"
+        color="#fff"
+      />
+    ),
+  }
+  componentWillUnmount(){
+    console.log("组件卸载demo2")
+  }
   render(){
-    return   <ScrollView>
+    return <ScrollView>
       <View>
       <TextInput onChangeText={this.change}></TextInput>
       <Button title="add" onPress={this.handlePress}></Button>
@@ -36,6 +56,33 @@ export default class Demo2 extends Component{
         extraData={this.state}
         data={this.state.list}></FlatList>
         <Image source={require("../images/3.jpg")}></Image>
+        <Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.navigate('Demo2')}
+        />
+        <Button
+          title="demo3"
+          onPress={() => this.props.navigation.navigate('Demo3',{
+            id:111,
+            name:'tom'
+          })}
+        />
+        <Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.push('Demo2')}
+        />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
+        <Button
+          title="返回到首页"
+          onPress={() => this.props.navigation.popToTop()}
+        />
+        <Button
+          title="返回到首页111"
+          onPress={() => this.props.navigation.navigate('Demo1')}
+        />
 
     </View>
   </ScrollView>

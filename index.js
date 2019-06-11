@@ -8,12 +8,24 @@ import App from './App';
 import {createStackNavigator} from 'react-navigation'
 
 
-import Demo1 from './src/components/demo1';
-import Demo2 from './src/components/demo2';
 // const Rootmap = createStackNavigator({
-//   'login':{screen:Demo1},
-//   'register':{screen:Demo2}
-// })
+//     login:Demo1,
+//     register:Demo2
+//   },
+//   {
+//     initialRouteName: 'Home',
+//     /* The header config from HomeScreen is now here */
+//     defaultNavigationOptions: {
+//       headerStyle: {
+//         backgroundColor: '#f4511e',
+//       },
+//       headerTintColor: '#fff',
+//       headerTitleStyle: {
+//         fontWeight: 'bold',
+//       },
+//   },
+// }
+// )
 
 import {name as appName} from './app.json';
 

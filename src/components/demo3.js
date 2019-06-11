@@ -27,16 +27,38 @@ export default class Demo3 extends Component{
   next=()=>{
     this.props.navigation.navigate("demo2")
   }
+  componentWillMount (){
+    console.log(this.props.navigation.state.params)
+  }
+  componentDidMount(){
+    console.log(this.props.navigation.state.params)
+  }
+  componentWillUnmount(){
+    console.log("组件卸载demo3")
+  }
+  // static navigationOptions = {
+  //   title: 'demo3',
+  //   headerStyle: {
+  //     backgroundColor: '#f4511e',
+  //   },
+  //   headerTintColor: '#fff',
+  //   headerTitleStyle: {
+  //     fontWeight: 'bold',
+  //   },
+  // }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam('name', 'A Nested De'),
+    };
+  };
+
+
   render(){
+    const { navigation } = this.props;
+    const id = navigation.getParam('id');
+    const name = navigation.getParam('name');
     return  <View >
     <ActivityIndicator color="red" size="small"></ActivityIndicator>
-    {/* <ScrollView>
-    {
-      this.state.list.map((value)=>{
-        return <Text>{value+"\n"}</Text>
-      })
-    }
-    </ScrollView> */}
     <View>
       <Button title="页脚的一个按钮"></Button>
     </View>
@@ -53,6 +75,21 @@ export default class Demo3 extends Component{
         <Text>居中</Text>
       </View>
       <Button title="跳转" onPress={this.next}></Button>
+      <Button
+          title="返回到demo2"
+          onPress={() => this.props.navigation.navigate('Demo2')}
+        />
+        <Button
+          title="返回到首页"
+          onPress={() => this.props.navigation.popToTop()}
+        />
+        <Text>Details Screen</Text>
+        <Text>id: {id}</Text>
+        <Text>name: {name}</Text>
+        <Button
+    title="Update the title"
+    onPress={() => this.props.navigation.setParams({name: 'Updated!'})}
+  />
   </View>
   }
 }

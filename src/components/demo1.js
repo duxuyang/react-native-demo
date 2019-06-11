@@ -27,6 +27,17 @@ export default class Demo1 extends Component{
     console.log(value)
     this.setState({myValue:value})
   }
+
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: 'blue',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  }
   render(){
     return <View>
     <Text style={{fontSize:18,color:'blue'}}>三十多岁</Text>   
@@ -56,6 +67,13 @@ export default class Demo1 extends Component{
     <Switch 
     value={this.state.myValue}
     onValueChange={this.handleValueChange}></Switch>
+
+        <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Demo2')}
+        />
+
+
   </View>
   }
 }
